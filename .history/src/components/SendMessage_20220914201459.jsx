@@ -1,3 +1,4 @@
+import { addDoc, serverTimestamp } from "firebase/firestore";
 import React, { useState } from "react";
 import { auth, db } from "../firebase";
 import { addDoc, collection, serverTimestamp } from "firebase/firestore";
@@ -8,10 +9,10 @@ const style = {
   button: `w-[20%] bg-green-500`,
 };
 
-const SendMessage = ({ scroll }) => {
+const SendMessage = () => {
   const [input, setInput] = useState("");
 
-  const sendMessage = async (e) => {
+  const SendMessage = async (e) => {
     e.preventDefault();
     if (input === "") {
       alert("Please enter a valid message");
@@ -22,14 +23,14 @@ const SendMessage = ({ scroll }) => {
       text: input,
       name: displayName,
       uid,
-      timestamp: serverTimestamp(),
+      timstamp: serverTimestamp(),
     });
     setInput("");
-    scroll.current.scrollIntoView({ behavior: "smooth" });
+    scroll.current - scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <form onSubmit={sendMessage} className={style.form}>
+    <form onSubmit={SendMessage} className={style.form}>
       <input
         value={input}
         onChange={(e) => setInput(e.target.value)}

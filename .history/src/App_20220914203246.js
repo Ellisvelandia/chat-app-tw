@@ -11,12 +11,14 @@ const style = {
 };
 
 function App() {
-  const [user] = useAuthState(auth);
+  const { user } = useAuthState(auth);
+
   return (
     <div className={style.appContainer}>
-      <section className="{style.sectionContainer}">
-        <Navbar />
+      <section className={style.sectionContainer}>
+      <Navbar />
         {user ? <Chat /> : null}
+        
       </section>
     </div>
   );
